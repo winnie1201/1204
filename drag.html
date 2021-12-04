@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drag and Drop</title>
+    <style>
+    .box{
+        width:100px;height:100px;background-color:red;
+        position:fixed;left:100px;top:100px;
+    }
+    .head{
+        background-color:green;
+    }
+    </style>
+</head>
+<body>
+    <div id="box" class="box">
+        <div id="boxer" class="head">head</div>
+        <div class="content">content</div>
+
+    </div>
+    <script>
+        //將格子可隨意拖曳
+        /*
+        let box=document.getElementById("box");
+        let move=function(a){
+            //console.log(a.clientX,a.clientY);
+            box.style.left=(a.clientX-20)+"px";
+            box.style.top=(a.clientY-20)+"px";
+        };
+        let drag=function(){
+            document.addEventListener("mousemove",move);//當滑鼠拖曳物件時，根據畫面移動
+        };
+        let drop=function(){
+            document.removeEventListener("mousemove",move);//當滑鼠放開時，停止移動物件
+        };
+        box.addEventListener("mousedown",drag);
+        box.addEventListener("mouseup",drop);
+        
+        
+        */
+        let boxer=document.getElementById("boxer");
+        let move=function(a){
+            //console.log(a.clientX,a.clientY);
+            box.style.left=(a.clientX-10)+"px";
+            box.style.top=(a.clientY-10)+"px";
+        };
+        let drag=function(){
+            document.addEventListener("mousemove",move);//當滑鼠拖曳物件時，根據畫面移動
+        };
+        let drop=function(){
+            document.removeEventListener("mousemove",move);//當滑鼠放開時，停止移動物件
+        };
+        boxer.addEventListener("mousedown",drag);
+        boxer.addEventListener("mouseup",drop);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Handing</title>
+</head>
+<body>
+    <h3>事件處理</h3>
+    <span 
+        onclick="console.log('onclick');"
+        ondblclick="console.log('Double Click');"
+
+        onmousedown="down(this);"
+        onmouseup="up(this);"
+
+        onmouseover="over(this);"
+        onmouseout="out(this);"
+
+        onmousemove="console.log('Mouse Move');"
+    >點擊</span>
+    <script>
+        function over(elem){
+            elem.style.color='red';
+        }
+        function out(elem){
+            elem.style.color='black';
+        }
+        function down(to){
+            to.style.fontWeight='bold';
+        }
+        function up(to){
+            to.style.fontWeight='normal';
+        }
+    </script>
+</body>
+</html>

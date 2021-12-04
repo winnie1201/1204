@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>event</title>
+</head>
+<body>
+    <h3>用程式做事件處理</h3>
+    <!--<button onclick="console.log('click');">點擊</button>-->
+    <button id="btn">點擊</button>
+    <script>
+        //事件處理：事件對象、事件名稱、事件處理函式
+        let btn=document.getElementById("btn");
+        //註冊事件：標籤addEventListener("事件名稱",事件處理函式);
+        //移除事件:標籤removeEventListener("事件名稱",事件處理函式);
+        //如果使用者點擊按鈕，印出Click
+        let clickHandler=function(a){
+            console.log(a.clientX,a.clientY);
+            if(a.ctrlKey){
+                btn.removeEventListener("click",clickHandler);
+            }  
+        };
+        btn.addEventListener("click",clickHandler);
+        /*
+            1. 可以移除事件處理
+            2. 可以取得事件物件 (Event Object)
+                2.1 瀏覽器偵測到事件發生，觸發點擊事件
+                2.2 瀏覽器蒐集和事件相關的資訊，建立事件物件(Event Object)
+                    let eventObj=new 事件物件();
+                2.3 瀏覽器呼叫事件處理函式，將事件物件透過參數傳入
+                    clickHandler(eventObj);
+        */
+        
+        //如果滑鼠移入按鈕，文字變紅色
+        //如果滑鼠移出按鈕，文字變黑色
+        let clickover=function(){
+            this.style.color="red";
+        };
+        btn.addEventListener("mouseover",clickover);
+        let clickOut=function(){
+            this.style.color="black";
+        };
+        btn.addEventListener("mouseout",clickOut);
+    </script>
+</body>
+</html>
